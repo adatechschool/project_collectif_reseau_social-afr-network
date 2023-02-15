@@ -57,6 +57,7 @@
                 ?>
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
+                
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez tous les message des utilisatrices
 			auxquel est abonnée l'utilisatrice <?php echo $user["alias"] ?> 
@@ -90,11 +91,11 @@
                 {
                     echo("Échec de la requete : " . $mysqli->error);
                 }
-
+                
+                
                 /**
                  * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
                  * A vous de retrouver comment faire la boucle while de parcours...
-		 */
 		while($message = $lesInformations->fetch_assoc())
 		{
 			echo "<pre>" . print_r($message, 1) . "</pre>"
@@ -103,6 +104,7 @@
                     <h3>
 		    <time datetime='<?php echo $message["created"] ?>' > <?php echo $message["created"] ?> </time>
                     </h3>
+                    
 		    <address> <?php echo $message["author_name"] ?> </address>
                     <div>
 		    <p> <?php echo $message["content"] ?> </p>
@@ -113,7 +115,6 @@
                     </footer>
                 </article>
                 <?php } ?>
-
 
             </main>
         </div>
