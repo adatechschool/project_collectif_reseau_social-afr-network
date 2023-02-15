@@ -8,7 +8,8 @@
     </head>
     <body>
         <header>
-            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
+        <?php include_once('header.php') ?>
+            <!-- <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=5">Mur</a>
@@ -23,7 +24,7 @@
                     <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
                 </ul>
 
-            </nav>
+            </nav> -->
         </header>
         <div id="wrapper">
             <?php
@@ -101,8 +102,10 @@
 			<p><?php echo $post["content"] ?></p>
                         </div>                                            
                         <footer>
+
 			<small>♥ <?php echo $post["like_number"] ?></small>
 			<a href="">#<?php echo $post["taglist"] ?></a>
+
                         </footer>
                     </article>
                 <?php } ?>
