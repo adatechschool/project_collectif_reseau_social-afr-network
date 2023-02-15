@@ -37,7 +37,8 @@
             <main>
                 <!-- L'article qui suit est un exemple pour la présentation et 
                   @todo: doit etre retiré -->
-                <!-- <article>
+
+               <!-- <article>
                     <h3>
                         <time datetime='2020-02-01 11:12:13' ></time>
                     </h3>
@@ -54,7 +55,8 @@
                         <a href="">#lorem</a>,
                         <a href="">#piscitur</a>,
                     </footer>
-                </article>                -->
+                </article> -->            
+
 
                 <?php
                 /*
