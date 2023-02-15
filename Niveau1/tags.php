@@ -8,7 +8,8 @@
     </head>
     <body>
         <header>
-            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
+        <?php include_once('header.php') ?>
+            <!-- <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=5">Mur</a>
@@ -23,7 +24,7 @@
                     <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
                 </ul>
 
-            </nav>
+            </nav> -->
         </header>
         <div id="wrapper">
             <?php
@@ -58,8 +59,7 @@
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez les derniers messages comportant
-                        le mot-clé XXX
-                        (n° <?php echo $tagId ?>)
+                        le mot-clé <?php echo $tag['label']?>
                     </p>
 
                 </section>
@@ -101,21 +101,23 @@
                     ?>                
                     <article>
                         <h3>
-                            <time datetime='2020-02-01 11:12:13' >31 février 2010 à 11h12</time>
+                            <time datetime="<?php echo $post['created'] ?>"><?php echo $post['created'] ?></time>
                         </h3>
-                        <address>par AreTirer</address>
+                        <address><?php echo $post['author_name'] ?></address>
                         <div>
-                            <p>Ceci est un paragraphe</p>
-                            <p>Ceci est un autre paragraphe</p>
-                            <p>... de toutes manières il faut supprimer cet 
-                                article et le remplacer par des informations en 
-                                provenance de la base de donnée</p>
+                            <p><?php echo $post['content'] ?></p>
+                            <p><?php echo $post['author_name'] ?></p>
                         </div>                                            
-                        <footer>
-                            <small>♥ 132</small>
+                        <!-- <footer>
+                        <?//php include_once('footer.php') ?>  -->
+                            <!-- <small>♥ 132</small>
                             <a href="">#lorem</a>,
-                            <a href="">#piscitur</a>,
-                        </footer>
+                            <a href="">#piscitur</a>, -->
+                            <footer>
+                            <small>♥<?php echo $post['like_number'] ?> </small>
+                            <a href=""><?php echo $post['taglist'] ?></a>,
+                            </footer>
+                        <!-- </footer> -->
                     </article>
                 <?php } ?>
 

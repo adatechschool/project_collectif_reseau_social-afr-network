@@ -1,5 +1,5 @@
 body{
-    background-color: #FFFFFF;
+    background-color: /*#FFFFFF*/ rgb(63, 63, 181);
     font-family: Arial;
 }
 
@@ -12,7 +12,7 @@ body>header{
     width:80em;
     margin:0 auto 2em auto;    
     padding:0;
-
+    border-radius: 1em;
 }
 body>header img{
     height:5em;
@@ -34,6 +34,7 @@ body>header a:hover
     background-color: #99b;
 }
 body>header ul{list-style: none;}
+
 body>header #user
 {
     margin-left: auto;

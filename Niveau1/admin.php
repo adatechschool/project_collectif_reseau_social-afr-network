@@ -8,7 +8,8 @@
     </head>
     <body>
         <header>
-            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
+            <?php include_once('header.php') ?>
+            <!-- <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=5">Mur</a>
@@ -23,7 +24,7 @@
                     <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
                 </ul>
 
-            </nav>
+            </nav> -->
         </header>
 
         <?php
@@ -100,7 +101,7 @@
                         <h3>Alexandra</h3>
                         <p>id:123</p>
                         <nav>
-                            <a href="wall.php?user_id=123">Mur</a>
+                            <a href="wall.php?">Mur</a>
                             | <a href="feed.php?user_id=123">Flux</a>
                             | <a href="settings.php?user_id=123">Paramètres</a>
                             | <a href="followers.php?user_id=123">Suiveurs</a>
