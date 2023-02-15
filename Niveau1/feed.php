@@ -42,7 +42,7 @@
             /**
              * Etape 2: se connecter à la base de donnée
              */
-            $mysqli = new mysqli("localhost", "root", "huor", "socialnetwork");
+            $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
             ?>
 
             <aside>
@@ -96,7 +96,7 @@
                 
                 /**
                  * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
-                 * A vous de retrouver comment faire la boucle while de parcours...
+                 * A vous de retrouver comment faire la boucle while de parcours...*/
 		while($message = $lesInformations->fetch_assoc())
 		{
 			echo "<pre>" . print_r($message, 1) . "</pre>"
