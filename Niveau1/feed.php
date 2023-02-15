@@ -41,7 +41,7 @@
             /**
              * Etape 2: se connecter à la base de donnée
              */
-            $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
+            $mysqli = new mysqli("localhost", "root", "huor", "socialnetwork");
             ?>
 
             <aside>
@@ -57,8 +57,11 @@
                 ?>
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
+                
                     <h3>Présentation</h3>
-                    <p><?php echo $user ['alias']?></p>
+                    <p>Sur cette page vous trouverez tous les message des utilisatrices
+			auxquel est abonnée l'utilisatrice <?php echo $user["alias"] ?> 
+                    </p>
 
                 </section>
             </aside>
@@ -93,32 +96,25 @@
                 /**
                  * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
                  * A vous de retrouver comment faire la boucle while de parcours...
-                 */
-                while ($userId = $lesInformations->fetch_assoc())
-                {
-                    echo "<pre>" . print_r($userId, 1) . "</pre>";
-                ?>  
-
+		while($message = $lesInformations->fetch_assoc())
+		{
+			echo "<pre>" . print_r($message, 1) . "</pre>"
+                ?>                
                 <article>
                     <h3>
-                        <time datetime='2020-02-01 11:12:13' >31 février 2010 à 11h12</time>
+		    <time datetime='<?php echo $message["created"] ?>' > <?php echo $message["created"] ?> </time>
                     </h3>
-                    <address>par <?php echo $userId['author_name'] ?> </address>
+                    
+		    <address> <?php echo $message["author_name"] ?> </address>
                     <div>
-                        <!--<p>Ceci est un paragraphe</p>
-                        <p>Ceci est un autre paragraphe</p> -->
-                        <p><?php echo $userId['content'] ?></p>
+		    <p> <?php echo $message["content"] ?> </p>
                     </div>                                            
                     <footer>
-                        <small>♥ <?php echo $userId['like_number'] ?></small>
-                        <a href=""><?php echo $userId['taglist'] ?></a>,
-                        <a href=""></a>,
+		    <small>♥ <?php echo $message["like_number"] ?></small>
+		    <a href="">#<?php echo $message["taglist"] ?></a>,
                     </footer>
                 </article>
                 <?php } ?>
-                // et de pas oublier de fermer ici votre while
-                ?>
-
 
             </main>
         </div>
