@@ -52,7 +52,7 @@
                 /**
                  * Etape 2: se connecter à la base de donnée
                  */
-                $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
+                include_once('db_connection.php');
 
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
@@ -80,7 +80,7 @@
                  * Etape 4: à vous de jouer
                  */
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer les valeurs ci-après puiseffacer la ligne ci-dessous
-                echo "<pre>" . print_r($user, 1) . "</pre>";
+                //echo "<pre>" . print_r($user, 1) . "</pre>";
                 ?>                
 
                 <article class='parameters'>

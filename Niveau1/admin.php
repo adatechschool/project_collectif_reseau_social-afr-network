@@ -34,11 +34,11 @@
         // on va en avoir besoin pour la suite
         $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
         //verification
-        if ($mysqli->connect_errno)
+        /*if ($mysqli->connect_errno)
         {
             echo("Échec de la connexion : " . $mysqli->connect_error);
             exit();
-        }
+        }*/
         ?>
         <div id="wrapper" class='admin'>
             <aside>
@@ -96,7 +96,7 @@
                  */
                 while ($tag = $lesInformations->fetch_assoc())
                 {
-                    echo "<pre>" . print_r($tag, 1) . "</pre>";
+                    //echo "<pre>" . print_r($tag, 1) . "</pre>";
         
                     ?>
                     <? $userId =intval($_GET['user_id']); ?>

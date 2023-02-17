@@ -44,7 +44,7 @@
                 // Etape 1: récupérer l'id de l'utilisateur
                 $userId = intval($_GET['user_id']);
                 // Etape 2: se connecter à la base de donnée
-                $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
+                include_once('db_connection.php');
                 // Etape 3: récupérer le nom de l'utilisateur
                 $laQuestionEnSql = "
                     SELECT users.* 
@@ -63,7 +63,7 @@
                 //@todo: faire la boucle while de parcours des abonnés et mettre les bonnes valeurs ci dessous 
                 while ($userId = $lesInformations->fetch_assoc())
                 {
-                    echo "<pre>" . print_r($userId, 1) . "</pre>";
+                    //echo "<pre>" . print_r($userId, 1) . "</pre>";
                 ?>  
                 
 
