@@ -1,3 +1,4 @@
+<?php require ('connexion_bdd.php');?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -7,49 +8,24 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <header>
-        <?php include_once('header.php') ?>
-            <!-- <img src="resoc.jpg" alt="Logo de notre réseau social"/>
-            <nav id="menu">
-                <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=5">Mur</a>
-                <a href="feed.php?user_id=5">Flux</a>
-                <a href="tags.php?tag_id=1">Mots-clés</a>
-            </nav>
-            <nav id="user">
-                <a href="#">Profil</a>
-                <ul>
-                    <li><a href="settings.php?user_id=5">Paramètres</a></li>
-                    <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
-                    <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
-                </ul>
-
-            </nav> -->
-        </header>
+        <?php 
+        include_once('header.php');
+         ?>
         <div id="wrapper">
             <?php
-            /**
-             * Cette page est TRES similaire à wall.php. 
-             * Vous avez sensiblement à y faire la meme chose.
-             * Il y a un seul point qui change c'est la requete sql.
-             */
-            /**
-             * Etape 1: Le mur concerne un utilisateur en particulier
-             */
+            //Cette page est TRES similaire à wall.php. 
+             //Vous avez sensiblement à y faire la meme chose.
+             //Il y a un seul point qui change c'est la requete sql.
+             //Etape 1: Le mur concerne un utilisateur en particulier
             $userId = intval($_GET['user_id']);
             ?>
             <?php
-            /**
-             * Etape 2: se connecter à la base de donnée
-             */
-            $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
+            /* Etape 2: se connecter à la base de donnée*/
             ?>
 
             <aside>
                 <?php
-                /**
-                 * Etape 3: récupérer le nom de l'utilisateur
-                 */
+                // Etape 3: récupérer le nom de l'utilisateur
                 $laQuestionEnSql = "SELECT * FROM `users` WHERE id= '$userId' ";
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 $user = $lesInformations->fetch_assoc();
@@ -102,7 +78,7 @@
                 
 		while($message = $lesInformations->fetch_assoc())
 		{
-			echo "<pre>" . print_r($message, 1) . "</pre>"
+			//echo "<pre>" . print_r($message, 1) . "</pre>"
                 ?>                
                 <article>
                     <h3>
