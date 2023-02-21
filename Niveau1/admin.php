@@ -5,22 +5,25 @@
         <meta charset="utf-8">
         <title>ReSoC - Administration</title> 
         <meta name="author" content="Julien Falconnet">
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="style.css"/>   
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
     </head>
+
+
     <body>
 
-        
-            
+       <div class="d-flex justify-content-end">
+
             <?php include_once('header.php') ?>
             
-
-        
 
         <?php
         /**
          * Etape 1: Ouvrir une connexion avec la base de donnée.
          */
         // on va en avoir besoin pour la suite
+
         include_once('db_connexion.php');
 
         //verification
@@ -30,8 +33,9 @@
             exit();
         }*/
         ?>
-        <div id="wrapper" class='admin'>
-            <aside>
+	
+        <div id="wrapper" class='admin d-flex w-75'>
+            <aside class="w-25" >
                 <h2>Mots-clés</h2>
                 <?php
                 /*
@@ -63,7 +67,7 @@
                     </article>
                 <?php } ?>
             </aside>
-            <main>
+            <main class="w-25">
                 <h2>Utilisatrices</h2>
                 <?php
                 /*
@@ -105,5 +109,9 @@
                 <?php } ?>
             </main>
         </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
     </body>
 </html>

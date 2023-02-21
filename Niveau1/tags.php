@@ -6,13 +6,16 @@
         <title>ReSoC - Les message par mot-clé</title> 
         <meta name="author" content="Julien Falconnet">
         <link rel="stylesheet" href="style.css"/>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     </head>
     <body>
 
-        <?php include_once('header.php') ?>
+	<div class="d-flex justify-content-end">
+        	<?php include_once('header.php') ?>
+        <div id="wrapper" class="d-flex flex-row-reverse w-75">
 
-        
-        <div id="wrapper">
             <?php
             /**
              * Cette page est similaire à wall.php ou feed.php 
@@ -28,7 +31,9 @@
             /**
              * Etape 2: se connecter à la base de donnée
              */
+
             include_once('db_connexion.php');
+
             ?>
 
 
@@ -43,7 +48,7 @@
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par le label et effacer la ligne ci-dessous
                 //echo "<pre>" . print_r($tag, 1) . "</pre>";
                 ?>
-                <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
+                <img class="w-25" src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez les derniers messages comportant
@@ -112,5 +117,9 @@
 
             </main>
         </div>
+	</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
     </body>
 </html>
