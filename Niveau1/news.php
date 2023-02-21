@@ -1,3 +1,4 @@
+<?php require ('connexion_bdd.php');?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -12,6 +13,7 @@
 
     </head>
     <body>
+
 	<div class="d-flex justify-content-end">
 	<!-- header -->
         <?php include_once('header.php') ?>
@@ -39,6 +41,7 @@
 		    </aside>
             <main>
 
+
                 <?php
                 /*
                   // C'est ici que le travail PHP commence
@@ -49,8 +52,11 @@
                   // plus généralement : https://www.php.net/manual/fr/mysqli.query.php
                  */
 
+
                 // Etape 1: Ouvrir une connexion avec la base de donnée.
-                $mysqli = new mysqli("localhost", "root", "huor", "socialnetwork");
+
+                include_once('db_connexion.php');
+
                 //verification
                 if ($mysqli->connect_errno)
                 {
@@ -95,7 +101,7 @@
                 {
                     //la ligne ci-dessous doit etre supprimée mais regardez ce 
                     //qu'elle affiche avant pour comprendre comment sont organisées les information dans votre 
-                    echo "<pre>" . print_r($post, 1) . "</pre>";
+
 
                     // @todo : Votre mission c'est de remplacer les AREMPLACER par les bonnes valeurs
                     // ci-dessous par les bonnes valeurs cachées dans la variable $post 

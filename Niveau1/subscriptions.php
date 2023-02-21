@@ -1,3 +1,4 @@
+<?php require ('connexion_bdd.php');?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -9,11 +10,13 @@
 
     </head>
     <body>
+
 	<div class="d-flex justify-content-end">
         <?php include_once('header.php') ?>
         <div id="wrapper" class="d-flex flex-row-reverse  w-75">
             <aside class="w-25">
                 <img class="w-25" src="user.jpg" alt="Portrait de l'utilisatrice"/>
+
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez la liste des personnes dont
@@ -28,8 +31,10 @@
                 <?php
                 // Etape 1: récupérer l'id de l'utilisateur
                 $userId = intval($_GET['user_id']);
+
                 // Etape 2: se connecter à la base de donnée
-                $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
+                include_once('db_connexion.php');
+
                 // Etape 3: récupérer le nom de l'utilisateur
                 $laQuestionEnSql = "
                     SELECT users.* 
@@ -48,7 +53,7 @@
                 //@todo: faire la boucle while de parcours des abonnés et mettre les bonnes valeurs ci dessous 
                 while ($userId = $lesInformations->fetch_assoc())
                 {
-                    echo "<pre>" . print_r($userId, 1) . "</pre>";
+                    //echo "<pre>" . print_r($userId, 1) . "</pre>";
                 ?>  
                 
 

@@ -10,6 +10,7 @@ transition: 500ms linear;
 
 body>header img{
     height:5em;
+    border-radius: 1em;
 }
 
 
@@ -19,6 +20,7 @@ body>header img{
     padding:1em;
     border-radius: 1em;    
 }
+
 
 #wrapper main{
     flex:3;

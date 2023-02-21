@@ -1,3 +1,4 @@
+<?php require ('connexion_bdd.php');?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -9,9 +10,11 @@
 
     </head>
     <body>
+
 	<div class="d-flex justify-content-end">
 	<!-- header  -->
         <?php include_once('header.php') ?>
+
 
         <div id="wrapper" class='profile w-75 d-flex flex-row-reverse'>
 
@@ -35,12 +38,14 @@
                  * Documentation : https://www.php.net/manual/fr/reserved.variables.get.php
                  * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
                  */
+
                 $userId = intval($_GET['user_id']);
 		
                 /**
                  * Etape 2: se connecter à la base de donnée
                  */
-                $mysqli = new mysqli("localhost", "root", "huor", "socialnetwork");
+                include_once('db_connexion.php');
+
 
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
@@ -68,7 +73,7 @@
                  * Etape 4: à vous de jouer
                  */
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer les valeurs ci-après puiseffacer la ligne ci-dessous
-                echo "<pre>" . print_r($user, 1) . "</pre>";
+                //echo "<pre>" . print_r($user, 1) . "</pre>";
                 ?>                
 
                 <article class='parameters'>

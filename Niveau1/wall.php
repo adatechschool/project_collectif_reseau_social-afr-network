@@ -1,3 +1,7 @@
+<?php
+require ('connexion_bdd.php');
+session_start();
+?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -9,6 +13,7 @@
 
     </head>
     <body>
+
 
 	<div class="d-flex justify-content-end ">
 
@@ -24,12 +29,6 @@
 		     * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
 		     */
 		    $userId =intval($_GET['user_id']);
-		    ?>
-		    <?php
-		    /**
-		     * Etape 2: se connecter à la base de donnée
-		     */
-		    $mysqli = new mysqli("localhost", "root", "huor", "socialnetwork");
 		    ?>
 
 		    <aside class="w-25">
@@ -80,6 +79,13 @@
 			while ($post = $lesInformations->fetch_assoc())
 			{
 
+
+
+            <?php
+            include_once('db_connexion.php');
+            ?>
+
+
 			    echo "<pre>" . print_r($post, 1) . "</pre>";
 			    ?>                
 			    <article>
@@ -92,8 +98,21 @@
 				</div>                                            
 				<footer>
 
+
 				<small>♥ <?php echo $post["like_number"] ?></small>
 				<a href="">#<?php echo $post["taglist"] ?></a>
+
+                    //echo "<pre>" . print_r($post, 1) . "</pre>";
+                    ?>                
+                    <article>
+                        <h3>
+			<time datetime='<?php echo $post["created"] ?>' ><?php echo $post["created"] ?></time>
+                        </h3>
+			<address><?php echo $post["author_name"] ?></address>
+                        <div>
+			<p><?php echo $post["content"] ?></p>
+                        </div>                                            
+                        <footer>
 
 				</footer>
 			    </article>

@@ -1,3 +1,4 @@
+<?php require ('connexion_bdd.php');?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -10,9 +11,11 @@
 
     </head>
     <body>
+
 	<div class="d-flex justify-content-end">
         	<?php include_once('header.php') ?>
         <div id="wrapper" class="d-flex flex-row-reverse w-75">
+
             <?php
             /**
              * Cette page est similaire à wall.php ou feed.php 
@@ -23,12 +26,16 @@
              */
             $tagId = intval($_GET['tag_id']);
             ?>
+
             <?php
             /**
              * Etape 2: se connecter à la base de donnée
              */
-            $mysqli = new mysqli("localhost", "root", "huor", "socialnetwork");
+
+            include_once('db_connexion.php');
+
             ?>
+
 
             <aside>
                 <?php
@@ -39,7 +46,7 @@
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 $tag = $lesInformations->fetch_assoc();
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par le label et effacer la ligne ci-dessous
-                echo "<pre>" . print_r($tag, 1) . "</pre>";
+                //echo "<pre>" . print_r($tag, 1) . "</pre>";
                 ?>
                 <img class="w-25" src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
@@ -83,7 +90,7 @@
                 while ($post = $lesInformations->fetch_assoc())
                 {
 
-                    echo "<pre>" . print_r($post, 1) . "</pre>";
+                    //echo "<pre>" . print_r($post, 1) . "</pre>";
                     ?>                
                     <article>
                         <h3>

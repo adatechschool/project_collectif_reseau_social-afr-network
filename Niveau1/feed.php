@@ -1,3 +1,4 @@
+<?php require ('connexion_bdd.php');?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -9,6 +10,7 @@
 
     </head>
     <body>
+
 	<div class="d-flex justify-content-end">
         	<?php include_once('header.php') ?>
 		<div id="wrapper" class="d-flex flex-row-reverse w-75">
@@ -101,6 +103,16 @@
 
 			    <small>♥ <?php echo $message["like_number"] ?></small>
 			    <a href="">#<?php echo $message["taglist"] ?></a>,
+
+
+            /**
+             * Etape 2: se connecter à la base de donnée
+             */
+            include_once('db_connexion.php');
+            ?>
+            
+           
+
 
 			    </footer>
 			</article>
