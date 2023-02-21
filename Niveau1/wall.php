@@ -1,3 +1,7 @@
+<?php
+require ('connexion_bdd.php');
+session_start();
+?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -7,24 +11,9 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        
-        <?php include_once('header.php') ?>
-            <!-- <img src="resoc.jpg" alt="Logo de notre réseau social"/>
-            <nav id="menu">
-                <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=5">Mur</a>
-                <a href="feed.php?user_id=5">Flux</a>
-                <a href="tags.php?tag_id=1">Mots-clés</a>
-            </nav>
-            <nav id="user">
-                <a href="#">Profil</a>
-                <ul>
-                    <li><a href="settings.php?user_id=5">Paramètres</a></li>
-                    <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
-                    <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
-                </ul>
 
-            </nav> -->
+        <?php include_once('header.php') ?>
+
         
         <div id="wrapper">
             <?php
@@ -37,6 +26,7 @@
              */
             $userId =intval($_GET['user_id']);
             ?>
+
             <?php
             include_once('db_connexion.php');
             /**
@@ -44,6 +34,7 @@
              */
             //$mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
             ?>
+
 
             <aside>
                 <?php
@@ -54,7 +45,7 @@
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 $user = $lesInformations->fetch_assoc();
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
-                //echo "<pre>" . print_r($user, 1) . "</pre>";
+
                 ?>
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
