@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <header>
-            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
+        
+            <!-- <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=5">Mur</a>
@@ -23,8 +23,9 @@
                     <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
                 </ul>
 
-            </nav>
-        </header>
+            </nav> -->
+            
+        
 
         <div id="wrapper" >
 
@@ -55,7 +56,7 @@
 
 
                         //Etape 3 : Ouvrir une connexion avec la base de donnée.
-                        $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
+                        include_once('db_connexion.php');
                         //Etape 4 : Petite sécurité
                         // pour éviter les injection sql : https://www.w3schools.com/sql/sql_injection.asp
                         $new_email = $mysqli->real_escape_string($new_email);

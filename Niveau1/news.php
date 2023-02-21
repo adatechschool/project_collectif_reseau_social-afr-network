@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <header>
+        
         <?php include_once('header.php') ?>
             <!-- <a href='admin.php'><img src="resoc.jpg" alt="Logo de notre réseau social"/></a>
             <nav id="menu">
@@ -24,7 +24,7 @@
                     <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
                 </ul>
             </nav> -->
-        </header>
+        
         <div id="wrapper">
             <aside>
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
@@ -69,7 +69,7 @@
                  */
 
                 // Etape 1: Ouvrir une connexion avec la base de donnée.
-                include_once('db_connection.php');
+                include_once('db_connexion.php');
                 //$mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
                 //verification
                 if ($mysqli->connect_errno)

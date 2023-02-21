@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?// php session_start(); ?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -10,8 +8,9 @@ session_start();
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <header>
-            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
+        
+            <?php include_once('header.php') ?>
+            <!-- <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=5">Mur</a>
@@ -26,8 +25,8 @@ session_start();
                     <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
                 </ul>
 
-            </nav>
-        </header>
+            </nav> -->
+        
 
         <div id="wrapper" >
 
@@ -51,17 +50,18 @@ session_start();
                         // Etape 2: récupérer ce qu'il y a dans le formulaire @todo: c'est là que votre travaille se situe
                         // observez le résultat de cette ligne de débug (vous l'effacerez ensuite)
                         
-                        //echo "<pre>" . print_r($_POST, 1) . "</pre>";
+                        echo "<pre>" . print_r($_POST, 1) . "</pre>";
                         
                         // et complétez le code ci dessous en remplaçant les ???
                         
+                        $userId = $_POST['id'];
                         $emailAVerifier = $_POST['email'];
                         $passwdAVerifier = $_POST['motpasse'];
 
 
                         //Etape 3 : Ouvrir une connexion avec la base de donnée.
                         
-                        $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
+                        include_once('db_connexion.php');
                         
                         //Etape 4 : Petite sécurité
                         // pour éviter les injection sql : https://www.w3schools.com/sql/sql_injection.asp
@@ -83,22 +83,24 @@ session_start();
                         {
                             echo "La connexion a échouée. ";
                             
+                            
                         } else
                         {
                             echo "Votre connexion est un succès : " . $user['alias'] . ".";
-                            // Etape 7 : Se souvenir que l'utilisateur s'est connecté pour la suite
-                            // documentation: https://www.php.net/manual/fr/session.examples.basic.php
                             $_SESSION['connected_id']=$user['id'];
-                            
+                            //include_once('auth_checked.php');
+                            return header ("Location: /project_collectif_reseau_social-afr-network/Niveau1/wall.php?user_id=".$user['id']);
+
                         }
                     }
                     ?>   
                    
 
                     <form action="login.php" method="post">
-                        <input type='hidden'name='???' value='achanger'>
+                        <input type='hidden'name='id' value='id'>
                         <dl>
-                            <dt><label for='email'>E-Mail</label></dt>
+                        <dt><label for='id'>E-Mail</label></dt>
+                            
                             <dd><input type='email'name='email'></dd>
                             <dt><label for='motpasse'>Mot de passe</label></dt>
                             <dd><input type='password'name='motpasse'></dd>

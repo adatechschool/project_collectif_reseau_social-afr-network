@@ -7,8 +7,11 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <header>
+        
+            
             <?php include_once('header.php') ?>
+            
+        
             <!-- <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
@@ -25,14 +28,14 @@
                 </ul>
 
             </nav> -->
-        </header>
+        
 
         <?php
         /**
          * Etape 1: Ouvrir une connexion avec la base de donnée.
          */
         // on va en avoir besoin pour la suite
-        $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
+        include_once('db_connexion.php');
         //verification
         /*if ($mysqli->connect_errno)
         {

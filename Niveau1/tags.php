@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <header>
+        
         <?php include_once('header.php') ?>
             <!-- <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
@@ -25,7 +25,7 @@
                 </ul>
 
             </nav> -->
-        </header>
+        
         <div id="wrapper">
             <?php
             /**
@@ -41,7 +41,7 @@
             /**
              * Etape 2: se connecter à la base de donnée
              */
-            include_once('db_connection.php');
+            include_once('db_connexion.php');
             ?>
 
             <aside>
