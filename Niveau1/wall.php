@@ -11,7 +11,9 @@ session_start();
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
+
         <?php include_once('header.php') ?>
+
         
         <div id="wrapper">
             <?php
@@ -24,6 +26,16 @@ session_start();
              */
             $userId =intval($_GET['user_id']);
             ?>
+
+            <?php
+            include_once('db_connexion.php');
+            /**
+             * Etape 2: se connecter à la base de donnée
+             */
+            //$mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
+            ?>
+
+
             <aside>
                 <?php
                 /**
@@ -33,7 +45,7 @@ session_start();
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 $user = $lesInformations->fetch_assoc();
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
-        //echo "<pre>" . print_r($user, 1) . "</pre>";
+
                 ?>
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>

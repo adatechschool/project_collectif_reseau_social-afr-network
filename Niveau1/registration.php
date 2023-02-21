@@ -1,4 +1,4 @@
-<?php require ('connexion_bdd.php');?>
+
 <!doctype html>
 <html lang="fr">
     <head>
@@ -8,7 +8,9 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
+
         <?php include_once('header.php') ?>
+
 
         <div id="wrapper" >
 
@@ -36,6 +38,12 @@
                         $new_email = $_POST['email'];
                         $new_alias = $_POST['pseudo'];
                         $new_passwd = $_POST['motpasse'];
+
+
+
+                        //Etape 3 : Ouvrir une connexion avec la base de donnée.
+                        include_once('db_connexion.php');
+
                         //Etape 4 : Petite sécurité
                         // pour éviter les injection sql : https://www.w3schools.com/sql/sql_injection.asp
                         $new_email = $mysqli->real_escape_string($new_email);

@@ -8,7 +8,9 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
+
         <?php include_once('header.php') ?>
+
         
         <div id="wrapper" class='profile'>
 
@@ -31,7 +33,15 @@
                  * Documentation : https://www.php.net/manual/fr/reserved.variables.get.php
                  * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
                  */
-                $userId = intval($_GET['user_id']);		
+
+                $userId = intval($_GET['user_id']);
+		
+                /**
+                 * Etape 2: se connecter à la base de donnée
+                 */
+                include_once('db_connexion.php');
+
+
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
                  */
@@ -58,7 +68,7 @@
                  * Etape 4: à vous de jouer
                  */
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer les valeurs ci-après puiseffacer la ligne ci-dessous
-                echo "<pre>" . print_r($user, 1) . "</pre>";
+                //echo "<pre>" . print_r($user, 1) . "</pre>";
                 ?>                
 
                 <article class='parameters'>

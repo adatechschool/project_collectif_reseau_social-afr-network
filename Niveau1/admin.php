@@ -8,16 +8,27 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <?php 
-        include_once('header.php');
-        /** Etape 1: Ouvrir une connexion avec la base de donnée.*/
+
+        
+            
+            <?php include_once('header.php') ?>
+            
+
+        
+
+        <?php
+        /**
+         * Etape 1: Ouvrir une connexion avec la base de donnée.
+         */
         // on va en avoir besoin pour la suite
+        include_once('db_connexion.php');
+
         //verification
-        if ($mysqli->connect_errno)
+        /*if ($mysqli->connect_errno)
         {
             echo("Échec de la connexion : " . $mysqli->connect_error);
             exit();
-        }
+        }*/
         ?>
         <div id="wrapper" class='admin'>
             <aside>

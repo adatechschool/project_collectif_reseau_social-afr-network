@@ -8,9 +8,11 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
+
         <?php 
         include_once('header.php');
          ?>
+
         <div id="wrapper">
             <?php
             //Cette page est TRES similaire à wall.php. 
@@ -20,7 +22,11 @@
             $userId = intval($_GET['user_id']);
             ?>
             <?php
-            /* Etape 2: se connecter à la base de donnée*/
+
+            /**
+             * Etape 2: se connecter à la base de donnée
+             */
+            include_once('db_connexion.php');
             ?>
 
             <aside>

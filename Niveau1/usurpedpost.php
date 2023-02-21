@@ -1,5 +1,5 @@
 <?php
-require ('connexion_bdd.php');
+
 session_start();
 ?>
 <!doctype html>
@@ -11,6 +11,7 @@ session_start();
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
+
         <?php include_once('header.php') ?>
 
         <div id="wrapper" >
@@ -25,6 +26,12 @@ session_start();
                     <h2>Poster un message</h2>
                     <?php
                     /**
+
+                     * BD
+                     */
+                    include_once('db_connexion.php');
+                    /**
+
                      * Récupération de la liste des auteurs
                      */
                     $listAuteurs = [];
