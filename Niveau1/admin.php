@@ -24,7 +24,7 @@
          */
         // on va en avoir besoin pour la suite
 
-        include_once('db_connexion.php');
+        //include_once('connexion_bdd.php');
 
         //verification
         /*if ($mysqli->connect_errno)

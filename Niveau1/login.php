@@ -16,12 +16,12 @@ session_start();
     </head>
     <body>
 	<div class="d-flex justify-content-end">
-	<?php include_once('header.php') ?>
+	<?php include_once('headerSmall.php') ?>
         <div id="wrapper" class="d-flex flex-row-reverse w-75" >
 
             <aside>
                 <h2>Présentation</h2>
-                <p>Bienvenu sur notre réseau social.</p>
+                <p>Bienvenue sur notre réseau social.</p>
 
             </aside>
             <main>
@@ -51,7 +51,7 @@ session_start();
 
                         //Etape 3 : Ouvrir une connexion avec la base de donnée.
              
-                        include_once('db_connexion.php');
+                        include_once('connexion_bdd.php');
 
                         
 
@@ -72,35 +72,31 @@ session_start();
                         $res = $mysqli->query($lInstructionSql);
                         $user = $res->fetch_assoc();
                     
-                    <form action="login.php" method="post">
-                        <input type='hidden'name='???' value='achanger'>
-                        <dl>
-                            <dt><label for='email'>E-Mail</label></dt>
-
+            
 
                         if ( ! $user OR $user["password"] != $passwdAVerifier){ 
-                            print_r("La connexion a échouée. ");
+                            //print_r("La connexion a échouée. ");
+                            header("Location:/project_collectif_reseau_social-afr-network/Niveau1/newsBeforeLog.php");
                         } else{
                             //echo "Votre connexion est un succès : " . $user['alias'] . ".";
                             // Etape 7 : Se souvenir que l'utilisateur s'est connecté pour la suite
                             // documentation: https://www.php.net/manual/fr/session.examples.basic.php
                             $_SESSION['connected_id']=$user['id']; 
                             header("Location:/project_collectif_reseau_social-afr-network/Niveau1/wall.php?user_id=".$user['id']); 
-
                         }
                     }
                     ?>   
-                   
+                        <form action="login.php" method="post">
+                        <input type='hidden'name='???' value='achanger'>
+                        <dl>
+                            <dt><label for='email'>E-Mail</label></dt>
                             <dd><input type='email'name='email'></dd>
                             <dt><label for='motpasse'>Mot de passe</label></dt>
                             <dd><input type='password'name='motpasse'></dd>
                         </dl>
                         <input type='submit'>
                     </form>
-                    <p>
-                        Pas de compte?
-                        <a href='registration.php'>Inscrivez-vous.</a>
-                    </p>
+
 
                 </article>
             </main>

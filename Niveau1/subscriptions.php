@@ -33,7 +33,7 @@
                 $userId = intval($_GET['user_id']);
 
                 // Etape 2: se connecter à la base de donnée
-                include_once('db_connexion.php');
+                include_once('connexion_bdd.php');
 
                 // Etape 3: récupérer le nom de l'utilisateur
                 $laQuestionEnSql = "
