@@ -1,4 +1,4 @@
-
+<?php include_once('connexion_bdd.php') ?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -35,7 +35,7 @@
                         // on ne fait ce qui suit que si un formulaire a été soumis.
                         // Etape 2: récupérer ce qu'il y a dans le formulaire @todo: c'est là que votre travaille se situe
                         // observez le résultat de cette ligne de débug (vous l'effacerez ensuite)
-                        echo "<pre>" . print_r($_POST, 1) . "</pre>";
+                        //echo "<pre>" . print_r($_POST, 1) . "</pre>";
                         // et complétez le code ci dessous en remplaçant les ???
 
                         $new_email = $_POST['email'];
@@ -44,8 +44,8 @@
 
 
 
-                        //Etape 3 : Ouvrir une connexion avec la base de donnée.
-                        include_once('db_connexion.php');
+                        
+                        
 
 
                         //Etape 4 : Petite sécurité

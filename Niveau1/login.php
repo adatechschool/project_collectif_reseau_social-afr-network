@@ -1,3 +1,4 @@
+<?php require ('connexion_bdd.php') ?>
 
 <?php
 session_start();
@@ -14,9 +15,12 @@ session_start();
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     </head>
+
     <body>
-	<div class="d-flex justify-content-end">
-	<?php include_once('header.php') ?>
+	    
+        <div class="d-flex justify-content-end">
+	        
+        <?php include_once('header.php') ?>
         <div id="wrapper" class="d-flex flex-row-reverse w-75" >
 
             <aside>
@@ -49,9 +53,7 @@ session_start();
                         $passwdAVerifier = $_POST['motpasse'];
 
 
-                        //Etape 3 : Ouvrir une connexion avec la base de donnée.
-             
-                        include_once('db_connexion.php');
+                        
 
                         
 
@@ -68,14 +70,12 @@ session_start();
                                 . "WHERE "
                                 . "email LIKE '" . $emailAVerifier . "'"
                                 ;
+                        echo $lInstructionSql;
                         // Etape 6: Vérification de l'utilisateur
                         $res = $mysqli->query($lInstructionSql);
                         $user = $res->fetch_assoc();
                     
-                    <form action="login.php" method="post">
-                        <input type='hidden'name='???' value='achanger'>
-                        <dl>
-                            <dt><label for='email'>E-Mail</label></dt>
+                    
 
 
                         if ( ! $user OR $user["password"] != $passwdAVerifier){ 
@@ -85,11 +85,15 @@ session_start();
                             // Etape 7 : Se souvenir que l'utilisateur s'est connecté pour la suite
                             // documentation: https://www.php.net/manual/fr/session.examples.basic.php
                             $_SESSION['connected_id']=$user['id']; 
-                            header("Location:/project_collectif_reseau_social-afr-network/Niveau1/wall.php?user_id=".$user['id']); 
+                            header("Location: /project_collectif_reseau_social-afr-network/Niveau1/wall.php?user_id=".$user['id']); 
 
                         }
                     }
                     ?>   
+                    <form action="login.php" method="post">
+                        <input type='hidden'name='???' value='achanger'>
+                        <dl>
+                            <dt><label for='email'>E-Mail</label></dt>
                    
                             <dd><input type='email'name='email'></dd>
                             <dt><label for='motpasse'>Mot de passe</label></dt>

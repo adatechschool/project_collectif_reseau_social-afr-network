@@ -1,4 +1,4 @@
-<?php require ('connexion_bdd.php');?>
+<?php include_once ('connexion_bdd.php') ?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -25,12 +25,7 @@
 		     */
 		    $userId = intval($_GET['user_id']);
 		    ?>
-		    <?php
-		    /**
-		     * Etape 2: se connecter à la base de donnée
-		     */
-		    $mysqli = new mysqli("localhost", "root", "huor", "socialnetwork");
-		    ?>
+		    
 
 		    <aside>
 			<?php
@@ -41,7 +36,7 @@
 			$lesInformations = $mysqli->query($laQuestionEnSql);
 			$user = $lesInformations->fetch_assoc();
 			//@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
-			echo "<pre>" . print_r($user, 1) . "</pre>";
+			//echo "<pre>" . print_r($user, 1) . "</pre>";
 			?>
 			<img class="w-25" src="user.jpg" alt="Portrait de l'utilisatrice"/>
 			<section>
@@ -88,7 +83,7 @@
 			
 			while($message = $lesInformations->fetch_assoc())
 			{
-				echo "<pre>" . print_r($message, 1) . "</pre>"
+				//echo "<pre>" . print_r($message, 1) . "</pre>"
 			?>                
 			<article>
 			    <h3>
@@ -105,11 +100,7 @@
 			    <a href="">#<?php echo $message["taglist"] ?></a>,
 
 
-            /**
-             * Etape 2: se connecter à la base de donnée
-             */
-            include_once('db_connexion.php');
-            ?>
+            
             
            
 

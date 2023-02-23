@@ -1,5 +1,6 @@
-<?php require ('connexion_bdd.php');?>
-    <!doctype html>
+<?php require ('connexion_bdd.php') ?>
+    
+<!doctype html>
 <html lang="fr">
     <head>
         <meta charset="utf-8">
@@ -18,21 +19,6 @@
             <?php include_once('header.php') ?>
             
 
-        <?php
-        /**
-         * Etape 1: Ouvrir une connexion avec la base de donnée.
-         */
-        // on va en avoir besoin pour la suite
-
-        include_once('db_connexion.php');
-
-        //verification
-        /*if ($mysqli->connect_errno)
-        {
-            echo("Échec de la connexion : " . $mysqli->connect_error);
-            exit();
-        }*/
-        ?>
 	
         <div id="wrapper" class='admin d-flex w-75'>
             <aside class="w-25" >
