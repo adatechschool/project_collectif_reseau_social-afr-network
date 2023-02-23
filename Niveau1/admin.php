@@ -19,6 +19,24 @@
             <?php include_once('header.php') ?>
             
 
+
+
+        <?php
+        /**
+         * Etape 1: Ouvrir une connexion avec la base de donnée.
+         */
+        // on va en avoir besoin pour la suite
+
+        //include_once('connexion_bdd.php');
+
+        //verification
+        /*if ($mysqli->connect_errno)
+        {
+            echo("Échec de la connexion : " . $mysqli->connect_error);
+            exit();
+        }*/
+        ?>
+
 	
         <div id="wrapper" class='admin d-flex w-75'>
             <aside class="w-25" >

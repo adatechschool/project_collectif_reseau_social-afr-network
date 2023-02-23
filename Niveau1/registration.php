@@ -12,7 +12,7 @@
     </head>
     <body>
 	<div class="d-flex justify-content-end">
-	<?php include_once('header.php')  ?>
+	<?php include_once('headerSmall.php')  ?>
         <div id="wrapper" class="d-flex flex-row-reverse w-75" >
 
 
@@ -44,8 +44,10 @@
 
 
 
-                        
-                        
+
+                        //Etape 3 : Ouvrir une connexion avec la base de donnée.
+                        include_once('connexion_bdd.php');
+
 
 
                         //Etape 4 : Petite sécurité

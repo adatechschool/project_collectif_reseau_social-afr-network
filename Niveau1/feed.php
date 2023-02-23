@@ -25,7 +25,7 @@
 		     */
 		    $userId = intval($_GET['user_id']);
 		    ?>
-		    
+
 
 		    <aside>
 			<?php
@@ -97,12 +97,8 @@
 			    <footer>
 
 			    <small>♥ <?php echo $message["like_number"] ?></small>
+
 			    <a href="">#<?php echo $message["taglist"] ?></a>,
-
-
-            
-            
-           
 
 
 			    </footer>

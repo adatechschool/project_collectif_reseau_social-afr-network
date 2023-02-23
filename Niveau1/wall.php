@@ -13,8 +13,6 @@ session_start();
 
     </head>
     <body>
-
-
 	<div class="d-flex justify-content-end ">
 
 		<?php include_once('header.php') ?>
@@ -29,8 +27,10 @@ session_start();
 		     * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
 		     */
 		    $userId =intval($_GET['user_id']);
-		    ?>
+            //include_once('connexion_bdd.php');
 
+		    ?>
+			
 		    <aside class="w-25">
 			<?php
 			/**
@@ -45,9 +45,9 @@ session_start();
 			<img class="w-25" src="user.jpg" alt="Portrait de l'utilisatrice"/>
 			<section>
 			    <h3>Présentation</h3>
-			    <p>Sur cette page vous trouverez tous les message de l'utilisatrice : <?php echo $user["alias"] ?>
-				
-			    </p>
+
+			    <p>Sur cette page vous trouverez tous les messages de l'utilisatrice : <?php echo $user["alias"] ?></p>
+
 			</section>
 		    </aside>
 
@@ -81,26 +81,21 @@ session_start();
 			/**
 			 * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
 			 */
-			while ($post = $lesInformations->fetch_assoc())
-			//echo "<pre>". print_r ($post, 1) ."<pre>";
-			{
-			?>
 
-			
+			while ($post = $lesInformations->fetch_assoc()){
+			    //echo "<pre>" . print_r($post, 1) . "</pre>";
+			    ?>                
 
-
-                          
 			    <article>
-				<h3>
-				<time datetime='<?php echo $post["created"] ?>' ><?php echo $post["created"] ?></time>
-				</h3>
-				<address><?php echo $post["author_name"] ?></address>
-				<div>
-				<p><?php echo $post["content"] ?></p>
-				</div>                                            
+					<h3>
+						<time datetime='<?php echo $post["created"] ?>' ><?php echo $post["created"] ?></time>
+					</h3>
+					<address><?php echo $post["author_name"] ?></address>
+					<div>
+						<p><?php echo $post["content"] ?></p>
+					</div>  
+
 				<footer>
-
-
 				<small>♥ <?php echo $post["like_number"] ?></small>
 				<a href="">#<?php echo $post["taglist"] ?></a>
 				
@@ -111,11 +106,21 @@ session_start();
 
 
 
+                <?php //echo "<pre>" . print_r($post, 1) . "</pre>";?>                
+                    <article>
+                        <h3>
+							<time datetime='<?php echo $post["created"] ?>' ><?php echo $post["created"] ?></time>
+                        </h3>
+				<address>
+					<?php echo $post["author_name"] ?>
+				</address>
+                <div>
+					<p><?php echo $post["content"] ?></p>
+                </div>                                            
+
 				</footer>
 			    </article>
 			<?php } ?>
-
-
 		    </main>
 		</div>
 	</div>

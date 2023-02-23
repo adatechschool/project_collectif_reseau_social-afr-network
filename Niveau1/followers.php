@@ -31,7 +31,9 @@
                 // Etape 1: récupérer l'id de l'utilisateur
                 $userId = intval($_GET['user_id']);
 
-                
+
+                include_once('connexion_bdd.php');
+
 
                 $laQuestionEnSql = "
                     SELECT users.*

@@ -55,7 +55,7 @@
 
                 // Etape 1: Ouvrir une connexion avec la base de donnée.
 
-                include_once('db_connexion.php');
+                include_once('connexion_bdd.php');
 
                 //verification
                 if ($mysqli->connect_errno)

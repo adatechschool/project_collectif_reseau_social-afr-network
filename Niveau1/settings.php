@@ -44,7 +44,7 @@
                 /**
                  * Etape 2: se connecter à la base de donnée
                  */
-                include_once('db_connexion.php');
+                include_once('connexion_bdd.php');
 
 
                 /**
