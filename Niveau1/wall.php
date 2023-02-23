@@ -14,6 +14,7 @@ session_start();
     </head>
     <body>
 	<div class="d-flex justify-content-end ">
+
 		<?php include_once('header.php') ?>
 		
 		<div id="wrapper" class="d-flex flex-row-reverse w-75">
@@ -44,20 +45,26 @@ session_start();
 			<img class="w-25" src="user.jpg" alt="Portrait de l'utilisatrice"/>
 			<section>
 			    <h3>Présentation</h3>
+
 			    <p>Sur cette page vous trouverez tous les messages de l'utilisatrice : <?php echo $user["alias"] ?></p>
+
 			</section>
 		    </aside>
 
 		    <main class="w-50">
+			<?php include('follow.php') ?>
 			<?php
 			/**
 			 * Etape 3: récupérer tous les messages de l'utilisatrice
 			 */
 			$laQuestionEnSql = "
-			    SELECT posts.content, posts.created, users.alias as author_name, 
+			    SELECT posts.content,
+				posts.created, 
+				users.alias as author_name, 
+				posts.user_id as post_user_id,
 			    COUNT(likes.id) as like_number, GROUP_CONCAT(DISTINCT tags.label) AS taglist 
 			    FROM posts
-			    JOIN users ON  users.id=posts.user_id
+			    JOIN users ON  users.id =posts.user_id
 			    LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
 			    LEFT JOIN tags       ON posts_tags.tag_id  = tags.id 
 			    LEFT JOIN likes      ON likes.post_id  = posts.id 
@@ -74,9 +81,11 @@ session_start();
 			/**
 			 * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
 			 */
+
 			while ($post = $lesInformations->fetch_assoc()){
 			    //echo "<pre>" . print_r($post, 1) . "</pre>";
 			    ?>                
+
 			    <article>
 					<h3>
 						<time datetime='<?php echo $post["created"] ?>' ><?php echo $post["created"] ?></time>
@@ -89,6 +98,13 @@ session_start();
 				<footer>
 				<small>♥ <?php echo $post["like_number"] ?></small>
 				<a href="">#<?php echo $post["taglist"] ?></a>
+				
+				<form action="wall.php" method="post">
+                                    <input type='hidden' name='post_user_id' value="<?php echo $post['post_user_id'] ?>">   
+                                    <input type='submit' value="follow">
+                                </form>
+
+
 
                 <?php //echo "<pre>" . print_r($post, 1) . "</pre>";?>                
                     <article>
@@ -101,6 +117,7 @@ session_start();
                 <div>
 					<p><?php echo $post["content"] ?></p>
                 </div>                                            
+
 				</footer>
 			    </article>
 			<?php } ?>

@@ -1,5 +1,6 @@
-<?php
-require ('connexion_bdd.php');
+
+<?php include_once('connexion_bdd.php') ?>
+
 session_start();
 ?>
 <!doctype html>
@@ -56,8 +57,8 @@ session_start();
 				// observez le résultat de cette ligne de débug (vous l'effacerez ensuite)
 				echo "<pre>" . print_r($_POST, 1) . "</pre>";
 				// et complétez le code ci dessous en remplaçant les ???
-				$authorId = $_POST['???'];
-				$postContent = $_POST['???'];
+				$authorId = $_POST['auteur'];
+				$postContent = $_POST['message'];
 
 
 				//Etape 3 : Petite sécurité
@@ -66,15 +67,14 @@ session_start();
 				$postContent = $mysqli->real_escape_string($postContent);
 				//Etape 4 : construction de la requete
 				$lInstructionSql = "INSERT INTO posts "
-					. "(id, user_id, content, created, permalink, post_id) "
+					. "(id, user_id, content, created, parent_id) "
 					. "VALUES (NULL, "
 					. $authorId . ", "
 					. "'" . $postContent . "', "
 					. "NOW(), "
-					. "'', "
 					. "NULL);"
 					;
-				echo $lInstructionSql;
+				//echo $lInstructionSql;
 				// Etape 5 : execution
 				$ok = $mysqli->query($lInstructionSql);
 				if ( ! $ok)
@@ -107,5 +107,6 @@ session_start();
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
     </body>
 </html>
